@@ -1,6 +1,6 @@
 # BayesKin-GenSmoothing
 This repository contains code and data to replicate the results described in the manuscript:
-> Pohl A., Schofield M. & Ferber R. (2022). A generalised smoothing approach for continuous, planar, inverse kinematics problems
+> Pohl A., Schofield M. & Ferber R. (2022). A generalised smoothing approach for continuous, planar, inverse kinematics problems.
 
 ## Requirements 
 R version 3.6.3 or higher and stan version 2.23 is required to run the scripts.  These are freely avaiable and we refer users to the relevant documentation for instalation at:
@@ -16,7 +16,7 @@ The models and analysis code presented rely on the following user contributed R 
 - splines2: https://cran.r-project.org/web/packages/splines2/index.html 
 - numDeriv: https://cran.r-project.org/web/packages/numDeriv/index.html
 - parallel: https://cran.r-project.org/web/views/HighPerformanceComputing.html 
-- 
+ 
 In addition the following packages are used for visulisation:
 - latex2exp: https://cran.r-project.org/web/packages/latex2exp/index.html
 
@@ -51,10 +51,13 @@ Further hints can be found within comments specific to each file.
 - `analysis.R` Generates results and plots found within the manuscript.
 
 - `./model-files/`
-    `sim-pendulum.stan` contains stan code to simulate the pendulum system
+    - `sim-pendulum.stan` contains stan code to simulate the pendulum system
           given initial conditions
-    `obs-pendulum.stan` contains stan code to simulate observed markers in the
+    - `obs-pendulum.stan` contains stan code to simulate observed markers in the
            presence of measurement nosie sigma.
+    - `mod1.stan` contains stan code to fit time-independent BIK to simulated data.
+    - `mod2.stan` contains stan code to fit  generalised smoothing BIK to simulated data.
+    - `mod3.stan` contains stan code to fit the ODE model to simulated data
 
 - `./model-fits/`
      contains R data files of each model fit to each simulation.
@@ -64,8 +67,8 @@ Further hints can be found within comments specific to each file.
 - `run.R` Fits models to 100 sets of simulated marker positions
 - `analysis.R` Generates results and plots found within the manuscript.
 
--  `./data/`
-     `processes_data.R` processes raw marker tradjectories and static trial to a
+- `./data/`
+-    `processes_data.R` processes raw marker tradjectories and static trial to a
          format suitiable of existing IK functions.
      `processed_data.rdata` contains the processed data from the motion capture
          experiement this is generated via the process_data.R script
@@ -74,16 +77,14 @@ Further hints can be found within comments specific to each file.
          motion capture experiement
 
 - `./model-files/`
-     `mod1.stan` contains stan code to fit the time independent BIK model
-     `mod2.stan` contains stan code to fit the time continuous generalised smoothing BIK model
+    - `mod1.stan` contains stan code to fit the time independent BIK model
+    - `mod2.stan` contains stan code to fit the time continuous generalised smoothing BIK model
 
 - `./model-fits/`
-     contains R data files of each model fit to each simulation postfixed by
-         the corresponding iteration's seed.
+     contains R data files of each model fit to each simulation postfixed by the iteration's seed.
 
 - `./gap-filling/`
-     contains code to demonstrate the ability of the generalised smoothing approach
-     to estimate kinematics in the presence of missing data
+     contains code to demonstrate the ability of the generalised smoothing approach to estimate kinematics in the presence of missing data
 
 
 
