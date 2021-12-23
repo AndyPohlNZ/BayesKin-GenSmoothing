@@ -245,7 +245,7 @@ gen_LS_inits <- function(y,
     r_inits <<- matrix(NA, nrow = nT, ncol = 2)
     theta_inits <<- matrix(NA, nrow = nT, ncol = nL)
     sigma_inits <<- rep(NA, nT)
-    print(sprintf("Computing time: %.0f", 1))
+    # print(sprintf("Computing time: %.0f", 1))
     temp <- optim(
         par = c(r0, theta0 * 180 / pi), fn = cost, gr = costgrad,
         y = list(t(y[1, , 1, ]), t(y[2, , 1, ]), t(y[3, , 1, ])),
@@ -275,7 +275,7 @@ gen_LS_inits <- function(y,
         if (sum(is.na(y[, , t, ])) > 0) {
 
         }
-        print(sprintf("Computing time: %.0f", t))
+        # print(sprintf("Computing time: %.0f", t))
         temp <- optim(
             par = c(r_inits[t - 1, ], theta_inits[t - 1, ] * 180 / pi), fn = cost, gr = costgrad,
             y = list(t(y[1, , t, ]), t(y[2, , t, ]), t(y[3, , t, ])),

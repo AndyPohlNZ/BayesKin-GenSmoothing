@@ -113,8 +113,7 @@ fbasis <<- fourier_basis(ts, nK, period = range(ts)[2], intercept = TRUE, derv =
 dfbasis <<- fourier_basis(ts, nK, period = range(ts)[2], intercept = TRUE, derv = 0)
 
 # --------------------- Fit models----------------------------------------------
-simMax <- 10
-for (i in (simMax - 9):simMax) {
+for (i in 1:nSim) {
     # Set seed for simulation
     seed <<- seeds[i]
     set.seed(seed)
